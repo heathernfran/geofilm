@@ -1,5 +1,32 @@
 Locations = new Mongo.Collection('locations');
 
+
+var currentLocation = function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    var timestamp = position.timestamp;
+  });
+};
+
+// add new location to db
+// Locations.insert({
+//   location: location,
+//   client: client,
+//   notes: notes,
+//   userId: userId,
+//   latitude: position.coords.latitude,
+//   longitude: position.coords.longitude,
+//   timestamp: position.timestamp,
+// });
+
+// if (Meteor.isCordova) {
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     var lat = position.coords.latitude;
+//     var long = position.coords.longitude;
+//   });
+// }
+
 if (Meteor.isClient) {
 
   Template.body.helpers({
@@ -10,7 +37,7 @@ if (Meteor.isClient) {
 
   Template.body.helpers({
     locations: function() {
-      return Locations.findAll({});
+      return Locations.find({});
     }
   });
 
