@@ -1,5 +1,28 @@
 Locations = new Mongo.Collection('locations');
 
+function Loc(place, cli, notes) {
+  // latitude, longitude, timestamp) {
+  this.place = place;
+  this.cli = cli;
+  this.notes = notes;
+  // this.latitude = latitude;
+  // this.longitude = longitude;
+  // this.timestamp = timestamp;
+}
+
+Loc.prototype = {
+  // valid: function() {
+  //   return this.loc && this.loc != "";
+  // },
+  save: function() {
+    Locations.insert({
+      place: this.place,
+      client: this.cli,
+      notes: this.notes
+    });
+  }
+};
+
 // get user's current position
 function findCurrentLocation() {
   if (!navigator.geolocation) {
@@ -11,14 +34,10 @@ function findCurrentLocation() {
   }
 
   function success(position) {
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
-    var timestamp = position.timestamp;
-
     Locations.insert({
-      latitude: lat,
-      longitude: long,
-      timestamp: timestamp
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+      timestamp: position.timestamp
     });
   }
 
@@ -27,16 +46,24 @@ function findCurrentLocation() {
 }
 
 // add new location to db
-function addNewLocation(location, client, notes) {
-
+function addNewLocation(place, client, notes) {
   Locations.insert({
-    location: location,
+    place: place,
     client: client,
     notes: notes
-  });
-
-  findCurrentLocation();
+  }, findCurrentLocation());
 }
+
+// function addNewLocation(l, c, n) {
+//   Locations.insert({
+//     location: l,
+//     client: c,
+//     notes: n
+//   }, function(err, objectId) {
+//     if (err) return;
+//     findCurrentLocation(objectId._id);
+//   });
+// }
 
 
 
@@ -55,17 +82,18 @@ if (Meteor.isClient) {
   });
 
   Template.body.events({
-    " #new-loc": function(event) {
+    // listen for new location to be entered
+    "submit #new-loc": function(event) {
 
       event.preventDefault();
 
-      var location = event.target.location.value,
+      var place = event.target.place.value,
           client = event.target.client.value,
           notes = event.target.notes.value;
 
-      // addNewLocation(location, client, notes);
+      addNewLocation(place, client, notes);
 
-      event.target.location.value = '';
+      event.target.place.value = '';
       event.target.client.value = '';
       event.target.notes.value = '';
     }
