@@ -1,6 +1,6 @@
 <template name="geoform">
   <ion-content>
-    <div class="list">
+    <div class="list" id="new-loc">
       <label class="item item-input">
         <input type="text" placeholder="Location" name="location">
       </label>
@@ -10,7 +10,7 @@
       <label class="item item-input">
         <textarea placeholder="Notes" name="notes"></textarea>
       </label>
-      <button class="button button-block button-dark" type="submit">
+      <button class="button button-block button-dark" type="submit" onsubmit="addNewLocation(location, client, notes)">
         Add location
       </button>
     </div>
