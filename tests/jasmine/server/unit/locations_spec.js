@@ -1,27 +1,27 @@
-describe('Location', function() {
+describe('Places', function() {
 
   beforeEach(function() {
-    this.place = 'test place name';
-    this.cli = 'test client name';
+    this.placename = 'test place name';
+    this.clientname = 'test client name';
     this.notes = 'test notes for this doc';
-    this.loc = new Location(this.place, this.cli, this.notes);
+    this.place = new Place(this.placename, this.clientname, this.notes);
   });
 
   it('has place, client, and notes', function() {
-    expect(this.loc.place).toEqual(this.place);
-    expect(this.loc.cli).toEqual(this.cli);
-    expect(this.loc.notes).toEqal(this.notes);
+    expect(this.place.placename).toEqual(this.placename);
+    expect(this.place.clientname).toEqual(this.clientname);
+    expect(this.place.notes).toEqual(this.notes);
   });
 
-  describe('#save', function() {
+  describe('insert new object', function() {
     beforeEach(function() {
-      spyOn(Locations, 'insert');
+      spyOn(Places, 'insert');
 
-      this.loc.sav();
+      this.place.save();
     });
 
     it('inserts into database', function() {
-      expect(Locations.insert).toHaveBeenCalled();
+      expect(Places.insert).toHaveBeenCalled();
     });
   });
 

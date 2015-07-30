@@ -1,15 +1,15 @@
-describe('Location', function() {
+describe('Places', function() {
 
-describe("insertLocation", function() {
+describe("insert places", function() {
   it("should insert into database", function() {
     var testPlace = 'test place',
         testClient = 'test client',
         testNotes = 'test notes';
 
-    spoyOn(Locations, 'insert').and.returnValue(result);
+    spoyOn(Places, 'insert').and.returnValue(result);
   });
 
-  expect(LocationsService.insertLocation(testPlace, testClient, testNotes)).toBe(result);
+  expect(Places.insertPlace(testPlace, testClient, testNotes)).toBe(result);
   expect(Locations.find.calls.argsFor(0)).toEqual(testLoc);
 });
 
