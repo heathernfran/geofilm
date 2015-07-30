@@ -2,15 +2,16 @@
   <ion-content>
     <div class="list" id="new-loc">
       <label class="item item-input">
-        <input type="text" placeholder="Location" name="location">
+        <input type="text" placeholder="Place name" name="placename">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Client" name="client">
+        <input type="text" placeholder="Client name" name="clientname">
       </label>
       <label class="item item-input">
         <textarea placeholder="Notes" name="notes"></textarea>
       </label>
-      <button class="button button-block button-dark" type="submit" onsubmit="addNewLocation(location, client, notes)">
+      <button class="button button-block button-dark" type="submit" >
+      <!-- onsubmit="addNewLocation(location, client, notes)"> -->
         Add location
       </button>
     </div>

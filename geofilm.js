@@ -1,23 +1,23 @@
-Locations = new Mongo.Collection('locations');
+Places = new Mongo.Collection('places');
 
-function Loc(place, cli, notes) {
+function Place(placename, clientname, notes) {
   // latitude, longitude, timestamp) {
-  this.place = place;
-  this.cli = cli;
+  this.placename = placename;
+  this.clientname = clientname;
   this.notes = notes;
   // this.latitude = latitude;
   // this.longitude = longitude;
   // this.timestamp = timestamp;
 }
 
-Loc.prototype = {
+Place.prototype = {
   // valid: function() {
   //   return this.loc && this.loc != "";
   // },
   save: function() {
-    Locations.insert({
-      place: this.place,
-      client: this.cli,
+    Places.insert({
+      placename: this.placename,
+      clientname: this.cliname,
       notes: this.notes
     });
   }
@@ -34,7 +34,7 @@ function findCurrentLocation() {
   }
 
   function success(position) {
-    Locations.insert({
+    Places.insert({
       latitude: position.coords.latitude,
       longitude: position.coords.longitude,
       timestamp: position.timestamp
@@ -46,10 +46,10 @@ function findCurrentLocation() {
 }
 
 // add new location to db
-function addNewLocation(place, client, notes) {
-  Locations.insert({
-    place: place,
-    client: client,
+function addNewLocation(placename, clientname, notes) {
+  Places.insert({
+    placename: placename,
+    clientname: clientname,
     notes: notes
   }, findCurrentLocation());
 }
@@ -69,17 +69,17 @@ function addNewLocation(place, client, notes) {
 
 if (Meteor.isClient) {
 
-  Template.body.helpers({
-    locations: [
-      { loc: 'get location' },
-    ]
-  });
+  // Template.body.helpers({
+  //   locations: [
+  //     { loc: 'get location' },
+  //   ]
+  // });
 
-  Template.body.helpers({
-    locs: function() {
-      return Locs.find({});
-    }
-  });
+  // Template.body.helpers({
+  //   locs: function() {
+  //     return Locs.find({});
+  //   }
+  // });
 
   Template.body.events({
     // listen for new location to be entered
@@ -87,14 +87,14 @@ if (Meteor.isClient) {
 
       event.preventDefault();
 
-      var place = event.target.place.value,
-          client = event.target.client.value,
+      var placename = event.target.placename.value,
+          clientname = event.target.clientname.value,
           notes = event.target.notes.value;
 
-      addNewLocation(place, client, notes);
+      addNewLocation(placename, clientname, notes);
 
-      event.target.place.value = '';
-      event.target.client.value = '';
+      event.target.placename.value = '';
+      event.target.clientname.value = '';
       event.target.notes.value = '';
     }
   });
