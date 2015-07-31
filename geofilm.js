@@ -22,28 +22,6 @@ Place.prototype = {
   }
 };
 
-// get current coordinates
-function findCurrentLocation() {
-  Tracker.autorun(function() {
-    Geolocation.currentLocation(function(position) {
-      Places.insert({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-        timestamp: position.timestamp
-      });
-    });
-  });
-}
-
-// add new location to db
-function addNewLocation(placename, clientname, notes) {
-  Places.insert({
-    placename: placename,
-    clientname: clientname,
-    notes: notes
-  }, findCurrentLocation());
-}
-
 
 if (Meteor.isClient) {
 
@@ -61,7 +39,7 @@ if (Meteor.isClient) {
 
   Template.geoform.events({
     // listen for new location to be entered
-    "submit #newplace": function(event) {
+    "submit form": function(event) {
 
       event.preventDefault();
 
