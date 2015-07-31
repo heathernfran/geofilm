@@ -47,6 +47,21 @@ function findCurrentLocation() {
 
 }
 
+// get current coordinates
+function trackLocation() {
+  Tracker.autorun(function() {
+    Geolocation.currentLocation(function(position) {
+      var lat = position.coords.latitude;
+      var long = position.coords.longitude;
+      var timestamp = position.timestamp;
+      Session.set('lat', lat);
+      Session.set('long', long);
+      Session.set('timestamp', timestamp);
+      return lat, long, timestamp;
+    });
+  });
+}
+
 // add new location to db
 function addNewLocation(placename, clientname, notes) {
   Places.insert({
@@ -92,6 +107,8 @@ if (Meteor.isClient) {
       var placename = event.target.placename.value,
           clientname = event.target.clientname.value,
           notes = event.target.notes.value;
+
+      trackLocation();
 
       addNewLocation(placename, clientname, notes);
 
