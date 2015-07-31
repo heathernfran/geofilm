@@ -1,13 +1,12 @@
 Places = new Mongo.Collection('places');
 
-function Place(placename, clientname, notes) {
-  // latitude, longitude, timestamp) {
+function Place(placename, clientname, notes, latitude, longitude, timestamp) {
   this.placename = placename;
   this.clientname = clientname;
   this.notes = notes;
-  // this.latitude = latitude;
-  // this.longitude = longitude;
-  // this.timestamp = timestamp;
+  this.latitude = latitude;
+  this.longitude = longitude;
+  this.timestamp = timestamp;
 }
 
 Place.prototype = {
@@ -18,14 +17,17 @@ Place.prototype = {
     Places.insert({
       placename: this.placename,
       clientname: this.cliname,
-      notes: this.notes
+      notes: this.notes,
+      latitude: this.latitude,
+      longitude: this.longitude,
+      timestamp: this.timestamp
     });
   }
 };
 
 // get user's current position
 function findCurrentLocation() {
-  if (!navigator.geolocation) {
+  if (!Geolocation) {
     console.log('Geolocation is not supported');
   }
 
@@ -41,7 +43,7 @@ function findCurrentLocation() {
     });
   }
 
-  navigator.geolocation.getCurrentPosition(success, error);
+  Geolocation.currentLocation(success, error);
 
 }
 
