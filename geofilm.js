@@ -83,9 +83,9 @@ if (Meteor.isClient) {
   //   }
   // });
 
-  Template.body.events({
+  Template.geoform.events({
     // listen for new location to be entered
-    "submit #new-loc": function(event) {
+    "submit #newplace": function(event) {
 
       event.preventDefault();
 
