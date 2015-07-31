@@ -7086,7 +7086,7 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "6c6106fec2d01a2c0d2b2b352edb4c9cf067d52f"
+                  "value": "52bcc6feefe77f6c659464ce89bee4475b139add"
                 },
                 "PUBLIC_SETTINGS": {
                   "type": "undefined"
@@ -7101,7 +7101,7 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "c94734d11123b2949e06c765568d48ed66ef62e5"
+                  "value": "2180eceb3ff01868bd5a6eeb3ec7f91d4b541e42"
                 },
                 "PUBLIC_SETTINGS": {
                   "type": "undefined"
@@ -7225,7 +7225,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 0
+              "value": 6
             },
             "timeout": {
               "type": "constant",
@@ -7870,7 +7870,7 @@ var packageMetadata = {
       "members": {
         "autoupdateVersion": {
           "type": "constant",
-          "value": "2eed470de973fbdd625300433462e64d90497701"
+          "value": "8d6260542899a21f2c17ce605d6c601e80f1b4d1"
         },
         "autoupdateVersionRefreshable": {
           "type": "constant",
@@ -7878,7 +7878,7 @@ var packageMetadata = {
         },
         "autoupdateVersionCordova": {
           "type": "constant",
-          "value": "c94734d11123b2949e06c765568d48ed66ef62e5"
+          "value": "2180eceb3ff01868bd5a6eeb3ec7f91d4b541e42"
         },
         "appId": {
           "type": "constant",
@@ -9824,84 +9824,7 @@ var packageMetadata = {
                 },
                 "pid": {
                   "type": "constant",
-                  "value": 65567
-                },
-                "fout": {
-                  "type": "constant",
-                  "value": 31
-                },
-                "child": {
-                  "type": "object",
-                  "members": {
-                    "domain": {
-                      "type": "null",
-                      "value": null
-                    },
-                    "signalCode": {
-                      "type": "null",
-                      "value": null
-                    },
-                    "exitCode": {
-                      "type": "null",
-                      "value": null
-                    },
-                    "pid": {
-                      "type": "constant",
-                      "value": 65567
-                    },
-                    "stdin": {
-                      "type": "null",
-                      "value": null
-                    },
-                    "stdout": {
-                      "type": "null",
-                      "value": null
-                    },
-                    "stderr": {
-                      "type": "null",
-                      "value": null
-                    },
-                    "stdio": {
-                      "type": "array"
-                    },
-                    "spawn": {
-                      "type": "function"
-                    },
-                    "kill": {
-                      "type": "function"
-                    },
-                    "ref": {
-                      "type": "function"
-                    },
-                    "unref": {
-                      "type": "function"
-                    },
-                    "setMaxListeners": {
-                      "type": "function"
-                    },
-                    "emit": {
-                      "type": "function"
-                    },
-                    "addListener": {
-                      "type": "function",
-                      "refID": 17
-                    },
-                    "on": {
-                      "ref": 17
-                    },
-                    "once": {
-                      "type": "function"
-                    },
-                    "removeListener": {
-                      "type": "function"
-                    },
-                    "removeAllListeners": {
-                      "type": "function"
-                    },
-                    "listeners": {
-                      "type": "function"
-                    }
-                  }
+                  "value": 66855
                 },
                 "getTaskName": {
                   "type": "function"
