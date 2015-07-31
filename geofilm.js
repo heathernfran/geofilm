@@ -69,8 +69,6 @@ if (Meteor.isClient) {
           clientname = event.target.clientname.value,
           notes = event.target.notes.value;
 
-      trackLocation();
-
       addNewLocation(placename, clientname, notes);
 
       event.target.placename.value = '';
