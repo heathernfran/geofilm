@@ -1,16 +1,16 @@
 <template name="geoform">
   <ion-content>
-    <div class="list">
+    <div class="list" ng-controller="geoformCtrl">
       <label class="item item-input">
-        <input type="text" placeholder="Location" name="location">
+        <input type="text" placeholder="Location" name="location" ng-model="location">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Client" name="client">
+        <input type="text" placeholder="Client" name="client" ng-model="client">
       </label>
       <label class="item item-input">
-        <textarea placeholder="Notes" name="notes"></textarea>
+        <textarea placeholder="Notes" name="notes" ng-model="notes"></textarea>
       </label>
-      <button class="button button-block button-dark" type="submit">
+      <button class="button button-block button-dark" type="submit" ng-submit="addLocation(location, client, notes)">
         Add location
       </button>
     </div>
