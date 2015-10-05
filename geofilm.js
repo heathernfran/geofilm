@@ -16,6 +16,21 @@ if (Meteor.isClient) {
 
   Template.body.events({});
 
+  // angularjs, for inserting new locations
+  // angular.module('geofilmApp', ['angular-meteor'])
+  //   .controller('geoformCtrl', ['$scope', '$meteor' function($scope, $meteor) {
+  //     $scope.locations = $meteor.collection(Locations);
+  //
+  //     $scope.addLocation = function(location, client, notes) {
+  //       $scope.locations.push({
+  //         location: location,
+  //         client: client,
+  //         notes: notes,
+  //         createdAt: new Date()
+  //       });
+  //     };
+  //   }]);
+
   // geolocation api
   var geoOptions = {
     enableHighAccuracy: false,
@@ -29,8 +44,8 @@ if (Meteor.isClient) {
   function getLocation(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    $('#lat').append(latitude);
-    $('#long').append(longitude);
+    $('#current #lat').append(latitude);
+    $('#current #long').append(longitude);
     mapLocation(latitude, longitude);
     clearLocation(watchId);
   }
