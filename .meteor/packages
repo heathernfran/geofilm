@@ -9,7 +9,7 @@ insecure
 iron:router
 accounts-password
 accounts-ui
-fourseven:scss
+fourseven:scss@=3.2.0
 stylus
 accounts-google
 standard-minifiers
