@@ -1,28 +1,15 @@
 Router.configure({
-  layoutTemplate: 'navs'
+  layoutTemplate: 'layout'
 })
 
-Router.route('/', function() {
-  this.render('default');
-  this.template('default');
-})
+var location = Iron.Location.get()
+if (location.queryObject.platformOverride) {
+  Session.set('platformOverride', location.queryObject.platformOverride)
+}
 
-Router.route('/login', function() {
-  this.render('login');
-  this.template('login');
-})
-
-Router.route('/addlocation', function() {
-  this.render('geoform');
-  this.template('geoform');
-})
-
-Router.route('/showlocations', function() {
-  this.render('showall');
-  this.template('showall');
-})
-
-Router.route('/currentlocaiton', function() {
-  this.render('currentlocation');
-  this.template('currentlocation');
+Router.map(function() {
+  this.route('currentLocation')
+  this.route('index', {
+    path: '/'
+  })
 })
