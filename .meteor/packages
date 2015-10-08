@@ -6,7 +6,6 @@
 
 autopublish
 insecure
-urigo:ionic
 iron:router
 accounts-password
 accounts-ui
@@ -27,3 +26,7 @@ random
 ejson
 spacebars
 check
+meteoric:ionic
+meteoric:ionic-sass
+iron:layout
+meteoric:ionicons-sass
