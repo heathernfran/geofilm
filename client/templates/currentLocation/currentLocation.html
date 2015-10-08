@@ -1,10 +1,19 @@
 <template name="currentLocation">
-  <!-- display current location -->
-  <div id="lat">
-    <p>Latitude: </p>
-  </div>
-  <div id="long">
-    <p>Longitude: </p>
-  </div>
-  <div id="map"></div>
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Current Location</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <!-- display current location -->
+      <div id="lat">
+        <p>Latitude: </p>
+      </div>
+      <div id="long">
+        <p>Longitude: </p>
+      </div>
+      <div id="map"></div>
+    {{/ionContent}}
+  {{/ionView}}
 </template>
