@@ -1,20 +1,20 @@
-Locations = new Mongo.Collection('locations');
+// Locations = new Mongo.Collection('locations');
 
-if (Meteor.isClient) {
+// if (Meteor.isClient) {
 
-  Template.body.helpers({
-    locations: [
-      { location: 'get location' },
-    ]
-  });
+  // Template.body.helpers({
+  //   locations: [
+  //     { location: 'get location' },
+  //   ]
+  // });
 
-  Template.body.helpers({
-    locations: function() {
-      return Locations.find({});
-    }
-  });
+  // Template.body.helpers({
+  //   locations: function() {
+  //     return Locations.find({});
+  //   }
+  // });
 
-  Template.body.events({});
+  // Template.body.events({});
 
   // angularjs, for inserting new locations
   // angular.module('geofilmApp', ['angular-meteor'])
@@ -31,40 +31,8 @@ if (Meteor.isClient) {
   //     };
   //   }]);
 
-  // geolocation api
-  var geoOptions = {
-    enableHighAccuracy: false,
-    maximumAge: 10000,
-    timeout: 5000
-  };
 
-  // TODO remove .getCurrentPostion and .clearWatch functions, use navigator.geolocation.watchPosition
-  var watchId = navigator.geolocation.getCurrentPosition(getLocation, errorForLocation, geoOptions);
-
-  function getLocation(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    $('#current #lat').append(latitude);
-    $('#current #long').append(longitude);
-    mapLocation(latitude, longitude);
-    clearLocation(watchId);
-  }
-
-  function mapLocation(posLat, posLong) {
-    var img = new Image();
-    img.src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + posLat + ',' + posLong + '&zoom=13&size=300x300&sensor=false';
-    $('#map').append(img);
-  }
-
-  function clearLocation(watchId) {
-    navigator.geolocation.clearWatch(watchId);
-  }
-
-  function errorForLocation() {
-    alert('Could not get current location');
-  }
-
-}
+// }
 
 
 
