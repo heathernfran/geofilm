@@ -13,7 +13,9 @@
       <div id="long">
         <p>Longitude: {{location.lng}}</p>
       </div>
-      <div id="map"></div>
+      <div id="map">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{location.lat}},{{location.lng}}&zoom=13&size=300x300&sensor=false" />
+      </div>
     {{/ionContent}}
   {{/ionView}}
 </template>
