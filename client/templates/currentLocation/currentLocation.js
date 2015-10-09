@@ -6,7 +6,14 @@
 // set map tile
 // L.tileLayer.provider('Thunderforest.Outdoors').addTo(map)
 
+Template.currentLocation.helpers({
+  location: function() {
+    return Geolocation.latLng()
+  },
+  error: Geolocation.error()
+})
 
+/*
 Tracker.autorun(function() {
 
   // geolocation api
@@ -42,3 +49,4 @@ Tracker.autorun(function() {
     alert('Could not get current location');
   }
 })
+*/
